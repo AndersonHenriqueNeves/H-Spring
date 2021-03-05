@@ -20,6 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.springboot.model.Temperatura;
 import br.com.springboot.repository.TemperaturaRepository;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+
 
 @RestController
 @RequestMapping("/temperaturas")
@@ -31,7 +34,7 @@ public class TemperaturaController {
 
   @PostMapping("/")
   public Temperatura create(@RequestBody Temperatura temperatura) {
-	
+    
 	return this.temperaturaRepository.save(temperatura);
   }
   

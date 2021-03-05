@@ -19,6 +19,8 @@ import lombok.NoArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Getter
 @Setter
@@ -41,8 +43,7 @@ public class Temperatura {
 	@Basic(optional = false)
 	@CreationTimestamp
 	@Column(name = "created_at")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date created_at = new Date();
+	private LocalDateTime created_at;
 
 	public Long getId() {
 		return id;
@@ -76,12 +77,12 @@ public class Temperatura {
 		this.umid = umid;
 	}
 
-	public Date getCreated_at() {
+	public LocalDateTime getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(Date created_at) {
-		this.created_at = new Date();
+	public void setCreated_at(LocalDateTime created_at) {
+		this.created_at = LocalDateTime.now(ZoneId.of("America/Sao_Paulo"));
 	}
 	
 	
